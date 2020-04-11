@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+
+import { ProductService } from './ProductService';
 import { IProduct } from './product';
 
 @Component({
@@ -9,26 +11,27 @@ import { IProduct } from './product';
 export class ProductDetailComponent implements OnInit {
 
   pageTitle: string = "Product Detail";
-  product: IProduct;
+  product: IProduct | undefined;
+  errorMessage = '';
 
   constructor(private route: ActivatedRoute,
-    private router: Router
-  ) { }
+    private router: Router,
+    private productService: ProductService) {
+}
 
   ngOnInit() {
-    let id = +this.route.snapshot.paramMap.get("id");
-    this.pageTitle += `:${id}`;
-    this.product =
-      {
-        "productId": 5,
-        "productName": "Hammer",
-        "productCode": "TBX-0048",
-        "releaseDate": "May 21, 2019",
-        "description": "Curved claw steel hammer",
-        "price": 8.9,
-        "starRating": 4.8,
-        "imageUrl": "assets/images/hammer.png"
-      }
+    const param = this.route.snapshot.paramMap.get('id');
+    if (param) {
+      const id = +param;
+      this.getProduct(id);
+    }
+  }
+
+  getProduct(id: number) {
+    this.productService.getProduct(id).subscribe({
+      next: product => this.product = product,
+      error: err => this.errorMessage = err
+    });
   }
 
   onBack(): void {
