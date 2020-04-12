@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { WelcomeComponent } from './home/welcome.component';
 import { ProductDetailGuard } from './product/product-detail.guard';
 import { ProductModule } from './product/product.module';
+import { RoutingModule } from './routing.module';
 
 
 @NgModule({
@@ -17,12 +18,8 @@ import { ProductModule } from './product/product.module';
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot([
-      {path: "welcome", component: WelcomeComponent},
-      {path: " ", redirectTo: "welcome", pathMatch:"full"},
-      {path: "**", redirectTo: "welcome", pathMatch:"full"}
-    ]),
-    ProductModule
+    ProductModule,
+    RoutingModule
   ],
   bootstrap: [AppComponent]
 })
