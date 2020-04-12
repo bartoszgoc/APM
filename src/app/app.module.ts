@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './home/welcome.component';
-import { ProductDetailGuard } from './product/product-detail.guard';
 import { ProductModule } from './product/product.module';
 import { RoutingModule } from './routing.module';
 
@@ -19,7 +20,9 @@ import { RoutingModule } from './routing.module';
     BrowserModule,
     HttpClientModule,
     ProductModule,
-    RoutingModule
+    RoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
   bootstrap: [AppComponent]
 })
