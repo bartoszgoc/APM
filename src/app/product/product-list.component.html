@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="table-responsive">
-            <table class="table" *ngIf="products && products.length">
+            <table class="table" *ngIf="productsFireBase && productsFireBase.length">
                 <thead>
                     <tr>
                         <th>
@@ -31,22 +31,25 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let product of filteredProducts">
+                    <tr *ngFor="let product of productsFireBase">
                         <td>
-                            <img *ngIf='showImage' [src]='product.imageUrl' [title]='product.title'
+                            <img *ngIf='showImage' [src]='product.payload.doc.data().imageUrl' [title]='product.payload.doc.data().title'
                                 [style.width.px]='imageWidth' [style.margin.px]='imageMargin'>
                         </td>
                         <td>
-                            <a [routerLink]="['/products', product.productId]"> 
-                                {{product.productName }}
-                            </a> 
+                            <a [routerLink]="['/products', product.productId]">
+                                {{product.payload.doc.data().productName }}
+                            </a>
                         </td>
-                        <td>{{product.productCode | lowercase | convertToSpaces:'-'}}</td>
-                        <td>{{product.releaseDate}}</td>
-                        <td>{{product.price| currency:"PLN":symbol:"2.2-2"}}</td>
+                        <td>{{product.payload.doc.data().productCode | lowercase | convertToSpaces:'-'}}</td>
+                        <td>{{product.payload.doc.data().releaseDate}}</td>
+                        <td>{{product.payload.doc.data().price| currency:"PLN":symbol:"2.2-2"}}</td>
                         <td>
-                            <pm-star [rating]="product.starRating" [productName]="product.productName"
+                            <pm-star [rating]="product.payload.doc.data().starRating" [productName]="product.payload.doc.data().productName"
                                 (ratingClicked)="onRatingClicked($event)"></pm-star>
+                        </td>
+                        <td [hidden]="product.payload.doc.data().completed" (click)="deleteProduct(product)">
+                            <button mat-raised-button class="delete-button" color="warn" type="button">Delete</button>
                         </td>
                     </tr>
                 </tbody>

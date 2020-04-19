@@ -8,6 +8,7 @@ import { ProductDetailComponent } from './product-detail.component';
 import { ProductDetailGuard } from './product-detail.guard';
 import { SharedModule } from '../shared/shared.module';
 import { ProductRoutingModule } from './ProductRoutingModule';
+import { AddProductComponent } from './add-product.component';
 
 @NgModule({
   declarations: [

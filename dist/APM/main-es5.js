@@ -34,6 +34,17 @@ module.exports = "<div class=\"card\">\n  <div class=\"card-header\">\n    {{pag
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/product/add-product.component.html":
+/*!******************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/product/add-product.component.html ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"col-md-6 user-container\">\n    <h2 class=\"text-center\">Add product</h2>\n    <form [formGroup]=\"addForm\" (ngSubmit)=\"onSubmit()\">\n      <div class=\"form-group\">\n        <label for=\"productId\">productId:</label>\n        <input type=\"text\" formControlName=\"productId\" placeholder=\"productId\" name=\"productId\" class=\"form-control\" id=\"productId\">\n      </div>\n  \n      <div class=\"form-group\">\n        <label for=\"productName\">productName:</label>\n        <input type=\"text\" formControlName=\"productName\" placeholder=\"productName\" name=\"productName\" class=\"form-control\" id=\"productName\">\n      </div>\n  \n      <div class=\"form-group\">\n        <label for=\"productCode\">productCode:</label>\n        <input type=\"text\" formControlName=\"productCode\" placeholder=\"First Name\" name=\"productCode\" class=\"form-control\" id=\"productCode\">\n      </div>\n  \n      <div class=\"form-group\">\n        <label for=\"releaseDate\">releaseDate:</label>\n        <input type=\"text\" formControlName=\"releaseDate\" placeholder=\"Last name\" name=\"releaseDate\" class=\"form-control\" id=\"releaseDate\">\n      </div>\n  \n      <div class=\"form-group\">\n        <label for=\"description\">description:</label>\n        <input type=\"text\" formControlName=\"description\" placeholder=\"description\" name=\"description\" class=\"form-control\" id=\"description\">\n      </div>\n  \n      <div class=\"form-group\">\n        <label for=\"price\">price:</label>\n        <input type=\"number\" formControlName=\"price\" placeholder=\"price\" name=\"price\" class=\"form-control\" id=\"price\">\n      </div>\n  \n      <div class=\"form-group\">\n        <label for=\"starRating\">starRating:</label>\n        <input type=\"number\" formControlName=\"starRating\" placeholder=\"starRating\" name=\"starRating\" class=\"form-control\" id=\"starRating\">\n      </div>\n      \n      <div class=\"form-group\">\n        <label for=\"imageUrl\">imageUrl:</label>\n        <input type=\"text\" formControlName=\"imageUrl\" placeholder=\"imageUrl\" name=\"imageUrl\" class=\"form-control\" id=\"imageUrl\">\n      </div>\n\n      <button class=\"btn btn-success\">Add</button>\n    </form>\n  </div>"
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/product/product-detail.component.html":
 /*!*********************************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/product/product-detail.component.html ***!
@@ -52,7 +63,7 @@ module.exports = "<div class='card'\n     *ngIf='product'>\n  <div class='card-h
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\">\r\n    <div class=\"card-header\">\r\n        {{pageTitle}}\r\n    </div>\r\n    <div class=\"card-body\">\r\n        <div class=\"row\">\r\n            <div class=\"col-md-2\">Filter by:</div>\r\n            <div class=\"col-md-4\">\r\n                <input type=\"text\" [(ngModel)]='listFilter' />\r\n            </div>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-md-6\">\r\n                <h4>Filtered by:{{listFilter}}</h4>\r\n            </div>\r\n        </div>\r\n        <div class=\"table-responsive\">\r\n            <table class=\"table\" *ngIf=\"products && products.length\">\r\n                <thead>\r\n                    <tr>\r\n                        <th>\r\n                            <button class=\"btn btn-primary\" (click)='toggleImage()'>\r\n                                {{showImage ? 'Hide' : 'Show'}} image\r\n                            </button>\r\n                        </th>\r\n                        <th>Product</th>\r\n                        <th>Code</th>\r\n                        <th>Available</th>\r\n                        <th>Price</th>\r\n                        <th>5 Star Ratinh</th>\r\n                    </tr>\r\n                </thead>\r\n                <tbody>\r\n                    <tr *ngFor=\"let product of filteredProducts\">\r\n                        <td>\r\n                            <img *ngIf='showImage' [src]='product.imageUrl' [title]='product.title'\r\n                                [style.width.px]='imageWidth' [style.margin.px]='imageMargin'>\r\n                        </td>\r\n                        <td>\r\n                            <a [routerLink]=\"['/products', product.productId]\"> \r\n                                {{product.productName }}\r\n                            </a> \r\n                        </td>\r\n                        <td>{{product.productCode | lowercase | convertToSpaces:'-'}}</td>\r\n                        <td>{{product.releaseDate}}</td>\r\n                        <td>{{product.price| currency:\"PLN\":symbol:\"2.2-2\"}}</td>\r\n                        <td>\r\n                            <pm-star [rating]=\"product.starRating\" [productName]=\"product.productName\"\r\n                                (ratingClicked)=\"onRatingClicked($event)\"></pm-star>\r\n                        </td>\r\n                    </tr>\r\n                </tbody>\r\n            </table>\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"card\">\r\n    <div class=\"card-header\">\r\n        {{pageTitle}}\r\n    </div>\r\n    <div class=\"card-body\">\r\n        <div class=\"row\">\r\n            <div class=\"col-md-2\">Filter by:</div>\r\n            <div class=\"col-md-4\">\r\n                <input type=\"text\" [(ngModel)]='listFilter' />\r\n            </div>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-md-6\">\r\n                <h4>Filtered by:{{listFilter}}</h4>\r\n            </div>\r\n        </div>\r\n        <div class=\"table-responsive\">\r\n            <table class=\"table\" *ngIf=\"products && products.length\">\r\n                <thead>\r\n                    <tr>\r\n                        <th>\r\n                            <button class=\"btn btn-primary\" (click)='toggleImage()'>\r\n                                {{showImage ? 'Hide' : 'Show'}} image\r\n                            </button>\r\n                        </th>\r\n                        <th>Product</th>\r\n                        <th>Code</th>\r\n                        <th>Available</th>\r\n                        <th>Price</th>\r\n                        <th>5 Star Ratinh</th>\r\n                    </tr>\r\n                </thead>\r\n                <tbody>\r\n                    <tr *ngFor=\"let product of filteredProducts\">\r\n                        <td>\r\n                            <img *ngIf='showImage' [src]='product.imageUrl' [title]='product.title'\r\n                                [style.width.px]='imageWidth' [style.margin.px]='imageMargin'>\r\n                        </td>\r\n                        <td>\r\n                            <a [routerLink]=\"['/products', product.productId]\">\r\n                                {{product.productName }}\r\n                            </a>\r\n                        </td>\r\n                        <td>{{product.productCode | lowercase | convertToSpaces:'-'}}</td>\r\n                        <td>{{product.releaseDate}}</td>\r\n                        <td>{{product.price| currency:\"PLN\":symbol:\"2.2-2\"}}</td>\r\n                        <td>\r\n                            <pm-star [rating]=\"product.starRating\" [productName]=\"product.productName\"\r\n                                (ratingClicked)=\"onRatingClicked($event)\"></pm-star>\r\n                        </td>\r\n                        <td>\r\n                            <button mat-raised-button class=\"delete-button\" color=\"warn\" type=\"button\" (click)=\"delete()\">Delete</button>\r\n                        </td>\r\n                    </tr>\r\n                </tbody>\r\n            </table>\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -88,7 +99,7 @@ var AppComponent = /** @class */ (function () {
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'pm-root',
-            template: "\n  <nav class='navbar navbar-expand navbar-light bg-light'>\n  <a class='navbar-brand'>{{pageTitle}}</a>\n    <ul class='nav nav-pills'>\n     <li><a class='nav-link' routerLinkActive='active' [routerLink]=\"['/welcome']\">Home</a></li>\n     <li><a class='nav-link' routerLinkActive='active' [routerLink]=\"['/products']\">Product List</a></li>\n    </ul>\n  </nav>\n  <div class=\"container\">\n    <router-outlet></router-outlet>\n  </div>\n"
+            template: "\n  <nav class='navbar navbar-expand navbar-light bg-light'>\n  <a class='navbar-brand'>{{pageTitle}}</a>\n    <ul class='nav nav-pills'>\n     <li><a class='nav-link' routerLinkActive='active' [routerLink]=\"['/welcome']\">Home</a></li>\n     <li><a class='nav-link' routerLinkActive='active' [routerLink]=\"['/products']\">Product List</a></li>\n     <li><a class='nav-link' routerLinkActive='active' [routerLink]=\"['/add-product']\">Add product</a></li>\n    </ul>\n  </nav>\n  <div class=\"container\">\n    <router-outlet></router-outlet>\n  </div>\n"
         })
     ], AppComponent);
     return AppComponent;
@@ -115,10 +126,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_fire__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/fire */ "./node_modules/@angular/fire/fesm5/angular-fire.js");
 /* harmony import */ var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/fire/firestore */ "./node_modules/@angular/fire/fesm5/angular-fire-firestore.js");
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _home_welcome_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./home/welcome.component */ "./src/app/home/welcome.component.ts");
-/* harmony import */ var _product_product_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./product/product.module */ "./src/app/product/product.module.ts");
-/* harmony import */ var _routing_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./routing.module */ "./src/app/routing.module.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_fire_database__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/fire/database */ "./node_modules/@angular/fire/fesm5/angular-fire-database.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _home_welcome_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./home/welcome.component */ "./src/app/home/welcome.component.ts");
+/* harmony import */ var _product_product_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./product/product.module */ "./src/app/product/product.module.ts");
+/* harmony import */ var _routing_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./routing.module */ "./src/app/routing.module.ts");
+/* harmony import */ var _product_add_product_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./product/add-product.component */ "./src/app/product/add-product.component.ts");
+
+
+
 
 
 
@@ -136,18 +153,22 @@ var AppModule = /** @class */ (function () {
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"],
-                _home_welcome_component__WEBPACK_IMPORTED_MODULE_8__["WelcomeComponent"]
+                _app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"],
+                _home_welcome_component__WEBPACK_IMPORTED_MODULE_10__["WelcomeComponent"],
+                _product_add_product_component__WEBPACK_IMPORTED_MODULE_13__["AddProductComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_7__["ReactiveFormsModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
-                _product_product_module__WEBPACK_IMPORTED_MODULE_9__["ProductModule"],
-                _routing_module__WEBPACK_IMPORTED_MODULE_10__["RoutingModule"],
+                _product_product_module__WEBPACK_IMPORTED_MODULE_11__["ProductModule"],
+                _routing_module__WEBPACK_IMPORTED_MODULE_12__["RoutingModule"],
                 _angular_fire__WEBPACK_IMPORTED_MODULE_4__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_6__["environment"].firebase),
-                _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_5__["AngularFirestoreModule"]
+                _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_5__["AngularFirestoreModule"],
+                _angular_fire_database__WEBPACK_IMPORTED_MODULE_8__["AngularFireDatabaseModule"]
             ],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -247,9 +268,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/fire/firestore */ "./node_modules/@angular/fire/fesm5/angular-fire-firestore.js");
-
+/* harmony import */ var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/fire/firestore */ "./node_modules/@angular/fire/fesm5/angular-fire-firestore.js");
 
 
 
@@ -260,15 +279,31 @@ var ProductService = /** @class */ (function () {
         this.http = http;
         this.firestore = firestore;
         this.productUrl = "api/products/products.json";
-        this.datacollection = firestore.collection("products").valueChanges();
     }
-    ProductService.prototype.getProducts = function () {
-        return this.http.get(this.productUrl)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (data) { return console.log('All: ' + JSON.stringify(data)); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+    ProductService.prototype.addProduct = function (product) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.firestore
+                .collection("products")
+                .add(product)
+                .then(function (res) { return "Added new product"; }, function (err) { return reject(err); });
+        });
     };
-    ProductService.prototype.getProduct = function (id) {
-        return this.getProducts()
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (products) { return products.find(function (p) { return p.productId === id; }); }));
+    ProductService.prototype.deleteProduct = function (productId) {
+        return this.firestore.collection("products").doc(productId).delete();
+    };
+    ProductService.prototype.getProductsList_1 = function () {
+        return this.dataCollection = this.firestore.collection("products").valueChanges();
+    };
+    ProductService.prototype.getProductsList = function () {
+        return this.firestore.collection('products').snapshotChanges();
+    };
+    ProductService.prototype.getProduct = function (userKey) {
+        return this.firestore.collection('products').doc(userKey).snapshotChanges();
+        // return this.getProductsList()
+        //   .pipe(
+        //     map((products: IProduct[]) => products.find(p => p.productId === id))
+        //   );
     };
     ProductService.prototype.handleError = function (err) {
         // in a real world app, we may send the server to some remote logging infrastructure
@@ -288,16 +323,100 @@ var ProductService = /** @class */ (function () {
     };
     ProductService.ctorParameters = function () { return [
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
-        { type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_5__["AngularFirestore"] }
+        { type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_4__["AngularFirestore"] }
     ]; };
     ProductService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: "root"
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"],
-            _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_5__["AngularFirestore"]])
+            _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_4__["AngularFirestore"]])
     ], ProductService);
     return ProductService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/product/add-product.component.css":
+/*!***************************************************!*\
+  !*** ./src/app/product/add-product.component.css ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3Byb2R1Y3QvYWRkLXByb2R1Y3QuY29tcG9uZW50LmNzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/product/add-product.component.ts":
+/*!**************************************************!*\
+  !*** ./src/app/product/add-product.component.ts ***!
+  \**************************************************/
+/*! exports provided: AddProductComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddProductComponent", function() { return AddProductComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ProductService__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ProductService */ "./src/app/product/ProductService.ts");
+
+
+
+
+
+var AddProductComponent = /** @class */ (function () {
+    function AddProductComponent(formBuilder, router, productService) {
+        this.formBuilder = formBuilder;
+        this.router = router;
+        this.productService = productService;
+    }
+    AddProductComponent.prototype.ngOnInit = function () {
+        this.addForm = this.formBuilder.group({
+            productId: [],
+            productName: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
+            productCode: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
+            releaseDate: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
+            description: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
+            price: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
+            starRating: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
+            imageUrl: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]
+        });
+    };
+    AddProductComponent.prototype.onSubmit = function () {
+        var _this = this;
+        if (!this.addForm.valid) {
+            return false;
+        }
+        else {
+            this.productService.addProduct(this.addForm.value)
+                .then(function (res) {
+                console.log(res);
+                _this.addForm.reset();
+                _this.router.navigate(['welcome']);
+            })
+                .catch(function (error) { return console.log(error); });
+        }
+    };
+    AddProductComponent.ctorParameters = function () { return [
+        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
+        { type: _ProductService__WEBPACK_IMPORTED_MODULE_4__["ProductService"] }
+    ]; };
+    AddProductComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'pm-add-product',
+            template: __webpack_require__(/*! raw-loader!./add-product.component.html */ "./node_modules/raw-loader/index.js!./src/app/product/add-product.component.html"),
+            styles: [__webpack_require__(/*! ./add-product.component.css */ "./src/app/product/add-product.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _ProductService__WEBPACK_IMPORTED_MODULE_4__["ProductService"]])
+    ], AddProductComponent);
+    return AddProductComponent;
 }());
 
 
@@ -345,7 +464,7 @@ var ProductDetailComponent = /** @class */ (function () {
         var param = this.route.snapshot.paramMap.get('id');
         if (param) {
             var id = +param;
-            this.getProduct(id);
+            this.getProduct(id.toString());
         }
     };
     ProductDetailComponent.prototype.getProduct = function (id) {
@@ -486,12 +605,19 @@ var ProductListComponent = /** @class */ (function () {
     };
     ProductListComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.productService.getProducts().subscribe({
+        this.productService.getProductsList().subscribe({
             next: function (products) {
                 _this.products = products;
                 _this.filteredProducts = _this.products;
+                console.log(_this.filteredProducts);
             },
             error: function (err) { return _this.errorMessage = err; }
+        });
+    };
+    ProductListComponent.prototype.delete = function (productId) {
+        this.productService.deleteProduct(productId)
+            .then(function (res) { }, function (err) {
+            console.log(err);
         });
     };
     ProductListComponent.ctorParameters = function () { return [
@@ -573,6 +699,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
 /* harmony import */ var _home_welcome_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./home/welcome.component */ "./src/app/home/welcome.component.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _product_add_product_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./product/add-product.component */ "./src/app/product/add-product.component.ts");
+
 
 
 
@@ -588,6 +716,7 @@ var RoutingModule = /** @class */ (function () {
                 _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forRoot([
                     { path: "welcome", component: _home_welcome_component__WEBPACK_IMPORTED_MODULE_3__["WelcomeComponent"] },
+                    { path: "add-product", component: _product_add_product_component__WEBPACK_IMPORTED_MODULE_5__["AddProductComponent"] },
                     { path: " ", redirectTo: "welcome", pathMatch: "full" },
                     { path: "**", redirectTo: "welcome", pathMatch: "full" }
                 ])

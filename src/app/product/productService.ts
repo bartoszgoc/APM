@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import {throwError, Observable } from 'rxjs';
+import { throwError, Observable } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 import { AngularFirestore } from '@angular/fire/firestore';
 
@@ -11,21 +11,36 @@ import { IProduct } from './product';
 })
 export class ProductService {
   private productUrl = "api/products/products.json";
+
+  //productsList: AngularFirestoreCollection<IProduct>;
+
   public dataCollection: Observable<IProduct[]>;
 
   constructor(private http: HttpClient,
     private firestore: AngularFirestore
-  ) {}
+  ) { }
 
-  getProducts(): Observable<IProduct[]> {
-    return this.dataCollection = this.firestore.collection('products').valueChanges() as Observable<IProduct[]>;
+
+  addProduct(product: IProduct) {
+    return new Promise<any>((resolve, reject) => {
+      this.firestore
+        .collection("products")
+        .add(product)
+        .then(res => "Added new product", err => reject(err));
+    });
   }
 
-  getProduct(id: number): Observable<IProduct | undefined> {
-    return this.getProducts()
-      .pipe(
-        map((products: IProduct[]) => products.find(p => p.productId === id))
-      );
+  getProductsList() {
+    let vat = this.firestore.collection('products').snapshotChanges();
+    console.log(vat);
+    return this.firestore.collection('products').snapshotChanges();
+  }
+
+  deleteProduct(data) {
+    return this.firestore
+      .collection("products")
+      .doc(data.payload.doc.id)
+      .delete();
   }
 
   private handleError(err: HttpErrorResponse) {
